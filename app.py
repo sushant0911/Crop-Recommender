@@ -24,81 +24,218 @@ st.set_page_config(
 )
 
 # CSS with updated styling for dark theme
+# 🌾 Farm-Themed UI with Light Background & Button Spacing
 st.markdown("""
 <style>
-.main {
-    background-color: #000000;
-    padding: 20px;
-    font-family: 'Segoe UI', sans-serif;
+html, body, .main {
+    background-color: #f9f8f3 !important;
+    color: #2e382e !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== Headings ===== */
+h1 {
+    color: #3e6e2c !important;
+    text-align: center;
+    font-weight: 700;
+}
+h2, h3, h4 {
+    color: #4e7d2d !important;
+    font-weight: 600;
+}
+
+/* ===== Sidebar ===== */
+[data-testid="stSidebar"] {
+    background-color: #f1f8e9 !important;
+    color: #2e382e !important;
+}
+[data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] p, [data-testid="stSidebar"] div {
+    color: #2e382e !important;
+}
+[data-testid="stSidebar"] a {
+    color: #33691e !important;
+    font-weight: 600;
+}
+
+/* ===== Tabs (Predict / History / Feedback) ===== */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 10px; /* space between tabs */
+}
+.stTabs [data-baseweb="tab"] {
+    background-color: #f1f8e9 !important;
+    color: #3e4e27 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    padding: 10px 25px !important; /* wider tabs */
+}
+.stTabs [aria-selected="true"] {
+    background-color: #8bc34a !important;
+    color: white !important;
+}
+
+/* ===== Buttons ===== */
+.stButton {
+    display: inline-block;
+    margin-right: 15px; /* space between buttons */
 }
 .stButton>button {
-    background-color: #2e7d32;
-    color: white;
-    border-radius: 10px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    background: #8bc34a !important;
+    color: white !important;
+    border-radius: 10px !important;
+    border: none !important;
+    padding: 10px 25px !important; /* wider buttons */
+    font-weight: 600 !important;
+    font-size: 15px !important;
 }
 .stButton>button:hover {
-    background-color: #1b5e20;
+    background: #689f38 !important;
+    transform: scale(1.03);
 }
-.stNumberInput label {
-    font-weight: bold;
-    color: #e0e0e0;
-}
-.stTextInput label {
-    font-weight: bold;
-    color: #e0e0e0;
-}
-.stSelectbox label {
-    font-weight: bold;
-    color: #e0e0e0;
-}
+
+/* ===== Cards ===== */
 .card {
-    background-color: black;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    padding: 20px 25px;
     margin-bottom: 20px;
+    border-left: 5px solid #9ccc65;
 }
-h2, h3 {
-    color: #2e7d32;
+
+/* ===== Inputs ===== */
+.stNumberInput label,
+.stTextInput label,
+.stSelectbox label,
+.stTextArea label,
+.stSlider label {
+    color: #355e2e !important;
+    font-weight: 600 !important;
 }
-h1 {
-    color: #fffff;
+.stNumberInput input,
+.stTextInput input,
+.stSelectbox select,
+textarea {
+    background-color: #fcfff7 !important;
+    color: #2e382e !important;
+    border-radius: 8px !important;
+    padding: 0.4rem 0.6rem !important;
 }
-.stSpinner {
-    color: #fffff;
+.stTextInput>div>div>input::placeholder {
+    color: #888 !important;
 }
+
+/* ===== Tables ===== */
 .custom-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #2c2c2c;
-    border: 1px solid #444;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .custom-table th {
-    background-color: #2e7d32;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
+    background-color: #c5e1a5;
+    color: #2e382e;
+    font-weight: 700;
+    padding: 12px;
     text-align: left;
 }
 .custom-table td {
     padding: 10px;
-    border-bottom: 1px solid #444;
-    color: #e0e0e0;
+    border-bottom: 1px solid #ddd;
 }
-.stTextArea label,
-.stSlider label,
-.stTextInput label {
-    color: #ffffff !important;
-    font-weight: bold;
+
+/* ===== Feedback Box ===== */
+.feedback-success {
+    background: #e8f5e9;
+    border-left: 5px solid #81c784;
+    color: #2e7d32;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+            
+.stMainBlockContainer  {
+    background-color: #f9f8f3 !important;
+}
+            
+.st-emotion-cache-14vh5up {
+    background-color: #8bc34a !important;            
+}
+
+.st-dw {
+    border-top-width: 1px;
+    background-color: #fcfff7 !important;
+    color: grey
+}        
+.st-dg {
+    background-color: #fcfff7; 
+}        
+.st-bw{
+    border: 0.1px solid #fcfff7 !important;            
+}                     
+.st-emotion-cache-9gx57n {
+    display: flex;
+    flex-flow: row;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 2.5rem;
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: #fcfff7;
+    transition-duration: 200ms;
+    transition-property: border;
+    transition-timing-function: 
+cubic-bezier(0.2, 0.8, 0.4, 1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.st-fa {
+    transition-duration: 400ms;
+    background-color: transparent;
+}
+.st-emotion-cache-1nhqhy2 {
+    margin: 0px;
+    border: none;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 2rem;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(250, 250, 250);
+    transition: color 300ms, backgroundColor 300ms;
+    background-color: #8bc34a;
+}     
+
+.st-emotion-cache-1vo6xi6 {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    min-width: 1rem;
+    position: relative;
+    overflow: visible;
+    color: grey;
+}
+.st-emotion-cache-11mwrlk {
+    width: 100%;
+    color: grey;
+    border-spacing: 0px;
+}   
+
+.st-c2 {
+    background-color: transparent !important;
+}           
+            
+/* ===== Images ===== */
+img {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 # Initialize session state
 if 'history' not in st.session_state:
@@ -115,7 +252,7 @@ with st.sidebar:
     based on soil nutrients and weather conditions.
     """)
     st.markdown("---")
-    st.markdown("**Developed by**: Team 8848 (Sushant, Anshit & Prabhat)")
+    st.markdown("**Developed by**: Team 8848 (Sushant Gupta, Sumit Gupta & Roshan Prasad)")
 
 # Load model and scaler
 try:
@@ -237,8 +374,7 @@ def get_weather_forecast(city):
 # PDF report generation
 def generate_pdf_report(data, top_crops, top_probs, soil_insights):
     buffer = io.BytesIO()
-    doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=inch, leftMargin=inch,
-                            topMargin=inch, bottomMargin=inch)
+    doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=inch, leftMargin=inch, topMargin=inch, bottomMargin=inch)
     styles = getSampleStyleSheet()
 
     title_style = ParagraphStyle(
@@ -253,7 +389,7 @@ def generate_pdf_report(data, top_crops, top_probs, soil_insights):
     normal_style.textColor = colors.black
 
     elements = []
-    elements.append(Paragraph("Dynamic Crop Recommendation Report", title_style))
+    elements.append(Paragraph("Crop Recommendation Report", title_style))
     elements.append(Paragraph(f"Generated on: {data['Timestamp']}", normal_style))
     elements.append(Spacer(1, 0.2 * inch))
 
@@ -341,7 +477,7 @@ def generate_pdf_report(data, top_crops, top_probs, soil_insights):
     elements.append(top_table)
     elements.append(Spacer(1, 0.3 * inch))
 
-    elements.append(Paragraph("Generated by Dynamic Crop Recommendation System", normal_style))
+    elements.append(Paragraph("Generated by Crop Recommendation System", normal_style))
     doc.build(elements)
     buffer.seek(0)
     return buffer
@@ -388,7 +524,7 @@ def get_soil_health_insights(n, p, k, ph, predicted_crop):
 
 
 # Main App Layout
-st.markdown("<h1 style='text-align: center;'>🌱 Dynamic Crop Recommendation System</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>🌱 Crop Recommendation System</h1>", unsafe_allow_html=True)
 tab1, tab2, tab3 = st.tabs(["Predict", "History", "Feedback"])
 
 with tab1:
